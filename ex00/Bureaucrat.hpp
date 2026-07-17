@@ -18,13 +18,22 @@ class Bureaucrate
 		~Bureaucrate();
 		std::string getName() const;
 		int			getGrade() const;
-	//  exepetion radeTooHighException qui herite de la class exception
-	// class GradeTooHighException : public exception
-	{
-
-	}
-
-	
+		class GradeTooHighException: public std::exception
+		{
+			public:
+				virtual const char *what() const throw()
+				{
+					return "Grade Too High";
+				}
+		};
+		class GradeTooLowException: public std::exception
+		{
+			public:
+				virtual const char *what() const throw()
+				{
+					return "Grade Too Low";
+				}
+		};
 };
 
 std::ostream&	operator<<(std::ostream& out, Bureaucrate const& bureaucrate);

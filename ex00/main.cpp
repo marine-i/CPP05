@@ -2,15 +2,22 @@
 
 int	main(void)
 {
-	Bureaucrate bob("Alice", 1);
-	std::cout << bob;
-	// try
-	// {
-	// 	//code a tester
-	// }
-	// catch (std::exception& e)
-	// {
+	try
+	{
+		// Bureaucrate a("A", -1);
+		// Bureaucrate b("B", 151);
+		Bureaucrate c("C", 15);
 
-	// }
-	// return (0);
+		// std::cout << a;
+		// std::cout << b;
+		std::cout << c;
+
+
+		//code a tester
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	return (0);
 }

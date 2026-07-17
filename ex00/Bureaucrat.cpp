@@ -1,7 +1,12 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrate::Bureaucrate(std::string name, int grade) : _name(name), _grade(grade)
+Bureaucrate::Bureaucrate(std::string name, int grade) : _name(name)
 {
+	if (grade < 0)
+		throw GradeTooHighException();
+	if (grade > 150)
+		throw GradeTooLowException();
+	this->_grade = grade;
 	std::cout << "Bureaucrate : Default constructor called" << std::endl;
 }
 
