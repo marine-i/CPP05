@@ -16,13 +16,22 @@
 #include <string>
 #include <iostream>
 
+#include "Bureaucrat.hpp"
+
 class Form
 {
 	private:
-		const std::string	_name;
-		bool				_isSigned;
-		const int			_gradeToSigne;
-		const int			_gradeToExecute;
+	const std::string	_name;
+	const int			_gradeToSign;
+	const int			_gradeToExecute;
+	bool				_isSigned;
+
+	public:
+		Form(const std::string name, const int gradeToSign, const int gradeToExecute);
+		Form(const Form& copy);
+		const Form& operator=(const Form& copy);
+		~Form();
+		void	beSigned(Bureaucrat const& bureaucrate);
 };
 
 std::ostream& operator<<(std::ostream& out, Form const& Form);
