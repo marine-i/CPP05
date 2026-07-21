@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
@@ -73,7 +73,7 @@ std::ostream&	operator<<(std::ostream& out, Bureaucrat const& Bureaucrat)
 	return (out);
 }
 
-void	Bureaucrat::signForm(Form const& form)
+void	Bureaucrat::signForm(Form& form)
 {
 	try
 	{
@@ -81,8 +81,6 @@ void	Bureaucrat::signForm(Form const& form)
 	}
 	catch (std::exception& e)
 	{
-		std::cerr << _name << "couldn't sign" << getName();
+		std::cerr << _name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
 	}
-		//<bureaucrat> couldn’t sign <form> because <reason>
-
 }

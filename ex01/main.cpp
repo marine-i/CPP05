@@ -16,9 +16,13 @@ int	main(void)
 {
 	try
 	{
-		Bureaucrat a("A", 2);
-		Form fa("fa", 1, 1);
-		fa.beSigned(a);
+		Bureaucrat a("A", 3);
+		Form fa("fa", 300, 3);
+		std::cout << fa;
+		a.signForm(fa);
+		a.signForm(fa);
+
+		std::cout << fa;
 	}
 	catch (std::exception& e)
 	{
