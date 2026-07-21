@@ -42,7 +42,10 @@ Form::~Form()
 
 void	Form::beSigned(Bureaucrat const& bureaucrate)
 {
-
+	if (bureaucrate.getGrade() > this->_gradeToExecute)
+		throw Form::GradeTooLowException();
+	std::cout << "cest ok" << std::endl;
+	
 }
 
 std::ostream& operator<<(std::ostream& out, Form const& form)

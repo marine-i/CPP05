@@ -17,6 +17,8 @@
 #include <iostream>
 #include <exception>
 
+#include "Form.hpp"
+
 class Bureaucrat
 {
 	private:

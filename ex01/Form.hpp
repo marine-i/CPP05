@@ -18,6 +18,8 @@
 
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 	private:
@@ -32,6 +34,24 @@ class Form
 		const Form& operator=(const Form& copy);
 		~Form();
 		void	beSigned(Bureaucrat const& bureaucrate);
+
+
+		class GradeTooHighException: public std::exception
+		{
+			public:
+				virtual const char *what() const throw()
+				{
+					return "Form : Grade Too High";
+				}
+		};
+		class GradeTooLowException: public std::exception
+		{
+			public:
+				virtual const char *what() const throw()
+				{
+					return "Form : Grade Too Low";
+				}
+		};
 };
 
 std::ostream& operator<<(std::ostream& out, Form const& Form);
