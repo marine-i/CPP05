@@ -33,15 +33,14 @@ class Form
 		Form(const Form& copy);
 		const Form& operator=(const Form& copy);
 		~Form();
-		void	beSigned(Bureaucrat const& bureaucrate);
-
-
+		void	beSigned(Bureaucrat const& bureaucrat);
+		std::string	getName();
 		class GradeTooHighException: public std::exception
 		{
 			public:
 				virtual const char *what() const throw()
 				{
-					return "Form : Grade Too High";
+					return "Grade Too High";
 				}
 		};
 		class GradeTooLowException: public std::exception
@@ -49,7 +48,7 @@ class Form
 			public:
 				virtual const char *what() const throw()
 				{
-					return "Form : Grade Too Low";
+					return "Grade Too Low";
 				}
 		};
 };

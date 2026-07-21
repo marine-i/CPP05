@@ -39,13 +39,18 @@ Form::~Form()
 }
 
 //getter
-
-void	Form::beSigned(Bureaucrat const& bureaucrate)
+std::string	Form::getName()
 {
-	if (bureaucrate.getGrade() > this->_gradeToExecute)
+	return this->_name;
+}
+
+//<bureaucrat> signed <form>
+
+void	Form::beSigned(Bureaucrat const& bureaucrat)
+{
+	if (bureaucrat.getGrade() > this->_gradeToExecute)
 		throw Form::GradeTooLowException();
-	std::cout << "cest ok" << std::endl;
-	
+	std::cout << bureaucrat.getName() << " signed " << this->getName() << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& out, Form const& form)

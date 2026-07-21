@@ -12,6 +12,7 @@
 
 #include "Bureaucrat.hpp"
 
+
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
 	if (grade < 1)
@@ -70,4 +71,18 @@ std::ostream&	operator<<(std::ostream& out, Bureaucrat const& Bureaucrat)
 {
 	out << Bureaucrat.getName() << ", bureaucrat grade " << Bureaucrat.getGrade() << "." << std::endl;
 	return (out);
+}
+
+void	Bureaucrat::signForm(Form const& form)
+{
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << _name << "couldn't sign" << getName();
+	}
+		//<bureaucrat> couldn’t sign <form> because <reason>
+
 }
