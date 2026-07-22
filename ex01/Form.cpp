@@ -80,11 +80,6 @@ const char *Form::GradeTooLowException::what() const throw()
 
 void	Form::beSigned(Bureaucrat const& bureaucrat)
 {
-	// if (this->isSigned())
-	// {
-	// 	std::cout << "Form " << this->getName() << " is already signed !" << std::endl;
-	// 	return ;
-	// }
 	if (bureaucrat.getGrade() > this->getGradeToSign())
 		throw Form::GradeTooLowException();
 	this->_isSigned = true;

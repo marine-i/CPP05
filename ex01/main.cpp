@@ -42,7 +42,7 @@ int	main(void)
 		boss.signForm(contrat);
 
 	}
-	catch (std::exception& e)
+	catch (const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -52,7 +52,7 @@ int	main(void)
 	{
 		Form tooHigh("TooHigh", 0, 50);
 	}
-	catch (std::exception& e)
+	catch (const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
@@ -60,7 +60,7 @@ int	main(void)
 	{
 		Form tooLow("TooLow", 50, 152);
 	}
-	catch (std::exception& e)
+	catch (const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
