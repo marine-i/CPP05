@@ -2,25 +2,30 @@ NAME = ex00
 
 CXX = c++
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -Iinclude -std=c++98
 
-HEADERS = Bureaucrat.hpp
+INCDIR = include/
+SRCDIR = src/
+OBJDIR = obj/
 
-SRC = main.cpp Bureaucrat.cpp
+HEADERS = $(INCDIR)Bureaucrat.hpp
 
-OBJ = $(SRC:.cpp=.o)
+SRCS = main.cpp Bureaucrat.cpp
 
+SRCS_WITH_SRCDIR = $(addprefix $(SRCDIR),$(SRCS))
+OBJS = $(patsubst $(SRCDIR)%.cpp, $(OBJDIR)%.o, $(SRCS_WITH_SRCDIR))
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp $(HEADERS)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+$(OBJDIR)%.o: $(SRCDIR)%.cpp $(HEADERS)
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -I$(INCDIR) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJDIR)
 
 fclean: clean
 	rm -f $(NAME)
