@@ -15,8 +15,7 @@
 
 #include <string>
 #include <iostream>
-
-#include "Bureaucrat.hpp"
+#include <exception>
 
 class Bureaucrat;
 
@@ -29,9 +28,10 @@ class Form
 		bool				_isSigned;
 
 	public:
-		Form(const std::string name, const int gradeToSign, const int gradeToExecute);
+		Form(void);
+		Form(const std::string& name, const int gradeToSign, const int gradeToExecute);
 		Form(const Form& copy);
-		const Form& operator=(const Form& copy);
+		Form& operator=(const Form& copy);
 		~Form();
 
 		void		beSigned(Bureaucrat const& bureaucrat);
@@ -43,19 +43,13 @@ class Form
 		class GradeTooHighException: public std::exception
 		{
 			public:
-				virtual const char *what() const throw()
-				{
-					return "Grade Too High";
-				}
+				virtual const char *what() const throw();
+		
 		};
-
 		class GradeTooLowException: public std::exception
 		{
 			public:
-				virtual const char *what() const throw()
-				{
-					return "Grade Too Low";
-				}
+				virtual const char *what() const throw();
 		};
 };
 
