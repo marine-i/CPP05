@@ -3,72 +3,69 @@
 #include "../include/AForm.hpp"
 #include "../include/ShrubberyCreationForm.hpp"
 #include "../include/RobotomyRequestForm.hpp"
+#include "../include/PresidentialPardonForm.hpp"
+#include <cstdlib>
+#include <ctime>
 
 int	main(void)
 {
-	std::cout << "---- SUCESS TEST ----" << std::endl;
-	// try
-	// {
-	// 	Bureaucrat a("A", 15);
-	// 	ShrubberyCreationForm b;
+	std::cout << "---- TESTS ----" << std::endl;
+	std::srand(std::time(NULL));
 
-	// 	a.signForm(b);
-	// 	a.executeForm(b);
-	// 	// std::cout << validForm << std::endl;
-	// 	// a.signForm(validForm);
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
 	try
 	{
-		Bureaucrat a("A", 15);
-		RobotomyRequestForm b;
-		
-		a.signForm(b);
-		a.executeForm(b);
-		// std::cout << validForm << std::endl;
-		// a.signForm(validForm);
+		Bureaucrat boss("Boss", 15);
+		Bureaucrat intern;
+		ShrubberyCreationForm form;
+
+		std::cout << form << std::endl;
+
+		intern.signForm(form);
+		boss.signForm(form);
+		intern.executeForm(form);
+		boss.executeForm(form);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	// 	try
+
+	// try
+	// {
+	// 	Bureaucrat chief("Chief", 15);
+	// 	RobotomyRequestForm form;
+
+	// 	std::cout << form << std::endl;
+
+	// 	chief.signForm(form);
+	// 	chief.executeForm(form);
+	// 	chief.executeForm(form);
+	// 	chief.executeForm(form);
+	// 	chief.executeForm(form);
+	// 	chief.executeForm(form);
+
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cerr << e.what() << std::endl;
+	// }
+	
+	// try
 	// {
 	// 	Bureaucrat boss("Boss", 1);
-	// 	Bureaucrat intern("Intern", 150);
-	// 	Form contrat("contrat", 1, 1);
+	// 	Bureaucrat manager("Manager", 20);
+	// 	PresidentialPardonForm form("prisonner");
 
-	// 	intern.signForm(contrat);
-	// 	std::cout << contrat << std::endl;
-	// 	boss.signForm(contrat);
-	// 	std::cout << contrat << std::endl;
-	// 	boss.signForm(contrat);
+	// 	std::cout << form << std::endl;
 
+	// 	manager.signForm(form);
+	// 	manager.executeForm(form);
+	// 	boss.executeForm(form);
 	// }
-	// catch (const std::exception& e)
+	// catch(const std::exception& e)
 	// {
-	// 	std::cout << e.what() << std::endl;
+	// 	std::cerr << e.what() << std::endl;
 	// }
-	// std::cout << "---- FAIL TEST ----" << std::endl;
-	// std::cout << "INVALID FORM" << std::endl;
-	// try
-	// {
-	// 	Form tooHigh("TooHigh", 0, 50);
-	// }
-	// catch (const std::exception& e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
-	// try
-	// {
-	// 	Form tooLow("TooLow", 50, 152);
-	// }
-	// catch (const std::exception& e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
+
 	return (0);
 }

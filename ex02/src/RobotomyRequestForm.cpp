@@ -45,9 +45,9 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 	if (executor.getGrade() > this->getGradeToExecute() )
 		throw GradeTooLowException();
 
-	std::srand(std::time(NULL));
+	std::cout << "* brrrrrrrr brrrrrrrr *" << std::endl;
 	if (std::rand() % 2 == 0)
-		std::cout << _target << "has been robotomized successfully" << std::endl;
+		std::cout << _target << " has been robotomized successfully" << std::endl;
 	else
-		std::cout << _target << "Robotomy of " << _target << " failed" << std::endl;
+		std::cout << "Robotomy of " << _target << " failed" << std::endl;
 }
