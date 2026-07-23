@@ -8,9 +8,9 @@ INCDIR = include/
 SRCDIR = src/
 OBJDIR = obj/
 
-HEADERS = $(INCDIR)Bureaucrat.hpp $(INCDIR)AForm.hpp $(INCDIR)ShrubberyCreationForm.hpp
+HEADERS = $(INCDIR)Bureaucrat.hpp $(INCDIR)AForm.hpp $(INCDIR)ShrubberyCreationForm.hpp $(INCDIR)RobotomyRequestForm.hpp
 
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
 
 SRCS_WITH_SRCDIR = $(addprefix $(SRCDIR),$(SRCS))
 OBJS = $(patsubst $(SRCDIR)%.cpp, $(OBJDIR)%.o, $(SRCS_WITH_SRCDIR))

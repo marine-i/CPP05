@@ -33,6 +33,11 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{
+	std::cout << "ShrubberyCreationForm : Destructor called" << std::endl;
+}
+
 const char *ShrubberyCreationForm::NotCreateFileException::what() const throw()
 {
 	return "Could not create Shrubbery file";
