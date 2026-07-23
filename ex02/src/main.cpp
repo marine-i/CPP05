@@ -1,23 +1,25 @@
 
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "../include/Bureaucrat.hpp"
+#include "../include/AForm.hpp"
+#include "../include/ShrubberyCreationForm.hpp"
 
 int	main(void)
 {
 	std::cout << "---- SUCESS TEST ----" << std::endl;
-	// try
-	// {
-	// 	Bureaucrat a("A", 10);
-	// 	AForm validForm("Valid Form", 10, 10);
+	try
+	{
+		Bureaucrat a("A", 15);
+		ShrubberyCreationForm b;
 
-	// 	std::cout << validForm << std::endl;
-	// 	a.signForm(validForm);
-	// 	std::cout << validForm << std::endl;
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
+		a.signForm(b);
+		a.executeForm(b);
+		// std::cout << validForm << std::endl;
+		// a.signForm(validForm);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	// 	try
 	// {
 	// 	Bureaucrat boss("Boss", 1);

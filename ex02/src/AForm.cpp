@@ -3,34 +3,34 @@
 #include "Bureaucrat.hpp"
 #include <string>
 
-// Form::Form(void) : _name("default"), _gradeToSign(150), _gradeToExecute(150), _isSigned(false)
-// {
-// 	std::cout << "Form : Default constructor called" << std::endl;
-// }
+AForm::AForm(void) : _name("default"), _gradeToSign(150), _gradeToExecute(150), _isSigned(false)
+{
+	std::cout << "AForm : Default constructor called" << std::endl;
+}
 
-// Form::Form(const std::string& name, const int gradeToSign, const int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), 
-// _gradeToExecute(gradeToExecute), _isSigned(false)
-// {
-// 	if (gradeToSign < 1 || gradeToExecute < 1) 
-// 		throw GradeTooHighException();
-// 	if (gradeToSign > 150 || gradeToExecute > 150)
-// 		throw GradeTooLowException();
-// 	std::cout << "Form : Constructor called" << std::endl;
-// }
+AForm::AForm(const std::string& name, const int gradeToSign, const int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), 
+_gradeToExecute(gradeToExecute), _isSigned(false)
+{
+	if (gradeToSign < 1 || gradeToExecute < 1) 
+		throw GradeTooHighException();
+	if (gradeToSign > 150 || gradeToExecute > 150)
+		throw GradeTooLowException();
+	std::cout << "AForm : Constructor called" << std::endl;
+}
 
-// Form::Form(const Form& copy) : _name(copy._name), _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute), _isSigned(copy._isSigned)
-// {
-// 	std::cout << "Form : Copy constructor called" << std::endl;
-// }
+AForm::AForm(const AForm& copy) : _name(copy._name), _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute), _isSigned(copy._isSigned)
+{
+	std::cout << "AForm : Copy constructor called" << std::endl;
+}
 
-// Form& Form::operator=(const Form& copy)
-// {
-// 	std::cout << "Form : Copy assignment operator called" << std::endl;
-// 	if (this == &copy)
-// 		return *this;
-// 	_isSigned = copy._isSigned;
-// 	return *this;
-// }
+AForm& AForm::operator=(const AForm& copy)
+{
+	std::cout << "Form : Copy assignment operator called" << std::endl;
+	if (this == &copy)
+		return *this;
+	_isSigned = copy._isSigned;
+	return *this;
+}
 
 AForm::~AForm()
 {
@@ -65,6 +65,11 @@ const char *AForm::GradeTooHighException::what() const throw()
 const char *AForm::GradeTooLowException::what() const throw()
 {
 	return "Grade Too Low";
+}
+
+const char *AForm::FormNotSignedException::what() const throw()
+{
+	return "Form Not Signed";
 }
 
 void	AForm::beSigned(Bureaucrat const& bureaucrat)
